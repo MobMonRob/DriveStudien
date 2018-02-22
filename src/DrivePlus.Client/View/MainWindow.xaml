@@ -7,8 +7,8 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Drive+" Icon="./Resources/car_icon.png"
-        Height="800" Width="1200"
-        MinHeight="800" MinWidth="1000"
+        Width="1400" Height="800" 
+        MinWidth="1200" MinHeight="800"
         WindowStartupLocation="CenterScreen"
         GlowBrush="{DynamicResource AccentColorBrush}">
     <controls:MetroWindow.RightWindowCommands>
@@ -43,7 +43,162 @@
             </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
+    <!-- Main Grid -->
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <!-- Left Region -->
+        <Grid Grid.Column="0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!-- Stream -->
+                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1">
+                    <Grid Width="800" Height="600">
 
+                    </Grid>
+                </Border>
+                <!-- Stream Control Panel -->
+                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Dunkler">
+                                <Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/brightness_down_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Heller">
+                                <Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/brightness_up_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Screenshot speichern">
+                                <Rectangle Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/save_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <!-- Right Region -->
+        <Border Grid.Column="1" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="480"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="0,0,0,1">
+                    <Grid>
+
+                    </Grid>
+                </Border>
+                <!-- Vehicle Control Panel -->
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical" Margin="30,20,30,20">
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="Placeholder: tooltip text" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/light_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </ToggleButton>
+                            <TextBlock Text="Placeholder: current state" FontSize="15" Margin="10,0,0,0" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="5,15,5,0">
+                            <TextBlock Text="Fahrzeug-Geschwindigkeit" FontSize="15" Margin="0,0,0,5" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Slider TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" Minimum="50" Maximum="100"/>
+                        </StackPanel>
+                        <Grid Margin="0,50,0,0">
+                            <StackPanel Orientation="Vertical">
+                                <RadioButton Content="Fahrzeugsteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}"/>
+                                <RadioButton Content="Kamerasteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Width="210" Height="210" Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Grid.Column="1" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Vorwärts" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Margin="0,0,0,5" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/up_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Grid.Row="1" Grid.Column="0" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Links" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Margin="0,0,5,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/left_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Grid.Row="1" Grid.Column="2" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Rechts" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Margin="5,0,0,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/right_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button Grid.Row="2" Grid.Column="1" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Rückwärts" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Margin="0,5,0,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/down_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </controls:MetroWindow>
+    

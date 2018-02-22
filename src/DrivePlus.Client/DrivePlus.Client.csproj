@@ -116,5 +116,29 @@
   <ItemGroup>
     <Resource Include="View\Resources\car_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\brightness_down_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\brightness_up_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\down_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\left_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\light_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\right_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\save_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resources\up_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
