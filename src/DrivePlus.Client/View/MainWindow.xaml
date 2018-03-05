@@ -5,12 +5,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:converter="clr-namespace:DrivePlus.Client.View.Converter"
         mc:Ignorable="d"
         Title="Drive+" Icon="./Resources/car_icon.png"
         Width="1400" Height="800" 
         MinWidth="1200" MinHeight="800"
         WindowStartupLocation="CenterScreen"
         GlowBrush="{DynamicResource AccentColorBrush}">
+    <controls:MetroWindow.Resources>
+        <converter:LightButtonTextConverter x:Key="LightButtonTextConverter"/>
+        <converter:LightButtonToolTipConverter x:Key="LightButtonToolTipConverter"/>
+    </controls:MetroWindow.Resources>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands Margin="0,0,5,0">
             <Button>
