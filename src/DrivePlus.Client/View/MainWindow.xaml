@@ -121,7 +121,7 @@
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Vertical" Margin="30,20,30,20">
                         <StackPanel Orientation="Horizontal">
-                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="Placeholder: tooltip text" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource LightButtonToolTipConverter}}" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged}">
                                 <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
@@ -132,7 +132,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </ToggleButton>
-                            <TextBlock Text="Placeholder: current state" FontSize="15" Margin="10,0,0,0" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource LightButtonTextConverter}}" FontSize="15" Margin="10,0,0,0" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical" Margin="5,15,5,0">
                             <TextBlock Text="Fahrzeug-Geschwindigkeit" FontSize="15" Margin="0,0,0,5" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
