@@ -1,12 +1,11 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Forms.Integration;
 
 namespace DrivePlus.Contracts
 {
     public interface ICameraAdapter
     {
-        void Login(Uri camerUri, UserCredentials userCredentials);
+        void Login(UserCredentials userCredentials);
 
-        Grid GetCamerGrid();
+        WindowsFormsHost GetCameraHost();
     }
 }
