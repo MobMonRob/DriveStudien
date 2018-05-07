@@ -59,7 +59,7 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <!-- Stream -->
                 <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1">
-                    <Grid Width="800" Height="600">
+                    <Grid Width="960" Height="540">
 
                     </Grid>
                 </Border>
