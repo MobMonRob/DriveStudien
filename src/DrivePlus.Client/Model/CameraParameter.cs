@@ -1,4 +1,5 @@
 ﻿using System;
+using DrivePlus.Contracts;
 
 namespace DrivePlus.Client.Model
 {
