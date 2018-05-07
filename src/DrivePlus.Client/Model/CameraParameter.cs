@@ -6,14 +6,12 @@ namespace DrivePlus.Client.Model
     {
         public Uri CameraUri { get; set; }
 
-        public CameraParameter()
+        public UserCredentials UserCredentials { get; set; }
+        
+        public CameraParameter(Uri cameraUri, string username, string password)
         {
-            InitializeValuesByDefault();
-        }
-
-        private void InitializeValuesByDefault()
-        {
-            CameraUri = new Uri("");
+            CameraUri = cameraUri;
+            UserCredentials = new UserCredentials(username, password);
         }
     }
 }
