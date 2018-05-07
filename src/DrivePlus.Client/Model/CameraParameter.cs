@@ -1,10 +1,11 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace DrivePlus.Client.Model
 {
     public class CameraParameter
     {
-        public IPAddress IpAddress { get; set; }
+        public Uri CameraUri { get; set; }
 
         public CameraParameter()
         {
@@ -13,7 +14,7 @@ namespace DrivePlus.Client.Model
 
         private void InitializeValuesByDefault()
         {
-            IpAddress = IPAddress.None;
+            CameraUri = new Uri("");
         }
     }
 }
