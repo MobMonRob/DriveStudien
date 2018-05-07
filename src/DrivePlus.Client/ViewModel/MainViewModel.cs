@@ -16,9 +16,32 @@ namespace DrivePlus.Client.ViewModel
             }
         }
 
+        private Camera _camera;
+        public Camera Camera
+        {
+            get => _camera;
+            set
+            {
+                _camera = value;
+                RaisePropertyChanged();
+            }
+        }
+        
+        public RelayCommand ConnectCommand { get; set; }
+
         public MainViewModel()
         {
-            Vehicle = new Vehicle();
+            ConnectCommand = new RelayCommand(ConnectCommandExecute, ConnectCommandCanExecute);
+        }
+
+        private void ConnectCommandExecute(object parameter)
+        {
+
+        }
+
+        private bool ConnectCommandCanExecute(object parameter)
+        {
+            return true;
         }
     }
 }
