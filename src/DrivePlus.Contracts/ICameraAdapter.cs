@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms.Integration;
+﻿using System.Windows;
 
 namespace DrivePlus.Contracts
 {
@@ -6,6 +6,6 @@ namespace DrivePlus.Contracts
     {
         void Login(UserCredentials userCredentials);
 
-        WindowsFormsHost GetCameraHost();
+        UIElement GetCameraUiElement();
     }
 }
