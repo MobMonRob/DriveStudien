@@ -1,4 +1,4 @@
-﻿namespace DrivePlus.Client.Model
+﻿namespace DrivePlus.Contracts
 {
     public class UserCredentials
     {

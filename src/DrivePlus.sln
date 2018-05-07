@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivePlus.Client", "DrivePlus.Client\DrivePlus.Client.csproj", "{7A02F17E-BB7F-401D-B748-D52BBAF4D961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivePlus.Contracts", "DrivePlus.Contracts\DrivePlus.Contracts.csproj", "{C821EB63-1582-41E5-9810-73AA45C4771D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{7A02F17E-BB7F-401D-B748-D52BBAF4D961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A02F17E-BB7F-401D-B748-D52BBAF4D961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A02F17E-BB7F-401D-B748-D52BBAF4D961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C821EB63-1582-41E5-9810-73AA45C4771D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C821EB63-1582-41E5-9810-73AA45C4771D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C821EB63-1582-41E5-9810-73AA45C4771D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C821EB63-1582-41E5-9810-73AA45C4771D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC22E159-A2D0-4035-A8B1-4BD87C95BCCB}
 	EndGlobalSection
 EndGlobal
