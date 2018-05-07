@@ -116,7 +116,12 @@
   <ItemGroup>
     <None Include="App\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DrivePlus.CameraAdapter\DrivePlus.CameraAdapter.csproj">
+      <Project>{02C42D48-2AE5-4246-AA28-9AF8B99BC924}</Project>
+      <Name>DrivePlus.CameraAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resources\help_icon.png" />
   </ItemGroup>
