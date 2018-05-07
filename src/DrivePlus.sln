@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivePlus.Client", "DrivePlus.Client\DrivePlus.Client.csproj", "{7A02F17E-BB7F-401D-B748-D52BBAF4D961}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02C42D48-2AE5-4246-AA28-9AF8B99BC924} = {02C42D48-2AE5-4246-AA28-9AF8B99BC924}
+		{C821EB63-1582-41E5-9810-73AA45C4771D} = {C821EB63-1582-41E5-9810-73AA45C4771D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivePlus.Contracts", "DrivePlus.Contracts\DrivePlus.Contracts.csproj", "{C821EB63-1582-41E5-9810-73AA45C4771D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivePlus.CameraAdapter", "DrivePlus.CameraAdapter\DrivePlus.CameraAdapter.csproj", "{02C42D48-2AE5-4246-AA28-9AF8B99BC924}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C821EB63-1582-41E5-9810-73AA45C4771D} = {C821EB63-1582-41E5-9810-73AA45C4771D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
