@@ -7,6 +7,7 @@ namespace DrivePlus.Client.View
         public MainWindow(MainViewModel viewModel)
         {
             InitializeComponent();
+            viewModel.StreamGrid = StreamGrid;
             DataContext = viewModel;
         }
     }

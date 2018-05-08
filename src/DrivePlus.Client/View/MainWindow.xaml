@@ -40,7 +40,7 @@
             <StackPanel Orientation="Vertical">
                 <!-- Stream -->
                 <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1">
-                    <Grid Width="960" Height="540">
+                    <Grid Name="StreamGrid" Width="960" Height="540">
                         <!-- Connect Panel-->
                         <StackPanel Orientation="Vertical" Margin="350,150,350,150">
                             <Grid Margin="5,0,5,0">
@@ -88,7 +88,7 @@
                 <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1">
                     <Grid>
                         <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
-                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Dunkler">
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Dunkler">
                                 <Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
@@ -99,7 +99,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Heller">
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Heller">
                                 <Rectangle Width="25" Height="25" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
@@ -110,7 +110,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Left" ToolTip="Screenshot speichern">
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Screenshot speichern">
                                 <Rectangle Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
@@ -121,6 +121,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
+                            <Button Margin="730,0,0,0" Width="50" Height="50" Command="{Binding LoginCommand}"/>
                         </StackPanel>
                     </Grid>
                 </Border>
