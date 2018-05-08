@@ -1,12 +1,14 @@
-﻿namespace DrivePlus.Client.Model
+﻿using System;
+
+namespace DrivePlus.Client.Model
 {
     public class Vehicle
     {
         public VehicleParameter Parameter { get; set; }
 
-        public Vehicle()
+        public Vehicle(Uri vehicleUri)
         {
-            Parameter = new VehicleParameter();
+            Parameter = new VehicleParameter(vehicleUri);
         }
     }
 }

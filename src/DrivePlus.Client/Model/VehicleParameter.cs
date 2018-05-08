@@ -1,21 +1,21 @@
-﻿using System.Net;
+﻿using System;
 
 namespace DrivePlus.Client.Model
 {
     public class VehicleParameter
     {
         public bool IsLightOn { get; set; }
-        public IPAddress IpAddress { get; set; }
+        public Uri VehicleUri { get; set; }
 
-        public VehicleParameter()
+        public VehicleParameter(Uri vehicleUri)
         {
             InitializeValuesByDefault();
+            VehicleUri = vehicleUri;
         }
 
         private void InitializeValuesByDefault()
         {
             IsLightOn = false;
-            IpAddress = IPAddress.None;
         }
     }
 }
