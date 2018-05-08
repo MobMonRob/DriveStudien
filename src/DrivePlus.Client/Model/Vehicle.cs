@@ -1,4 +1,5 @@
 ﻿using System;
+using DrivePlus.Contracts;
 
 namespace DrivePlus.Client.Model
 {
@@ -6,9 +7,12 @@ namespace DrivePlus.Client.Model
     {
         public VehicleParameter Parameter { get; set; }
 
+        public IVehicleAdapter VehicleAdapter { get; set; }
+
         public Vehicle(Uri vehicleUri)
         {
             Parameter = new VehicleParameter(vehicleUri);
+            VehicleAdapter = new VehicleAdapter.VehicleAdapter(vehicleUri);
         }
     }
 }
