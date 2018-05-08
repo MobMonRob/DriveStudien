@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICameraAdapter.cs" />
+    <Compile Include="IVehicleAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCredentials.cs" />
+    <Compile Include="VehicleCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
