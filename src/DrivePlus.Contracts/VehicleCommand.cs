@@ -8,6 +8,7 @@
         Left,
         Right,
         SetSpeed,
-        SwitchLight
+        SwitchLightOn,
+        SwitchLightOff
     }
 }
