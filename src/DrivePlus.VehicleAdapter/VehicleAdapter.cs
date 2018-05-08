@@ -8,9 +8,9 @@ namespace DrivePlus.VehicleAdapter
     {
         private readonly Uri _vehicleUri;
 
-        public VehicleAdapter()
+        public VehicleAdapter(Uri vehicleUri)
         {
-            _vehicleUri = new Uri("http://192.168.2.100:80");
+            _vehicleUri = vehicleUri;
         }
 
         public void SendCommand(VehicleCommand command, int value = 0)
