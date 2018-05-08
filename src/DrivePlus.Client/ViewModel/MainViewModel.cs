@@ -1,7 +1,6 @@
 ﻿using DrivePlus.Client.Model;
 using DrivePlus.Client.ViewModel.Base;
 using System;
-using System.Threading;
 using System.Windows.Controls;
 
 namespace DrivePlus.Client.ViewModel
