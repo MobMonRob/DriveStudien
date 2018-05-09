@@ -113,6 +113,7 @@ namespace DrivePlus.Client.ViewModel
         private void LoginCommandExecute(object parameter)
         {
             Camera?.CameraAdapter.Login(Camera.Parameter.UserCredentials);
+            Vehicle?.VehicleAdapter.Fetch();
         }
 
         private bool LoginCommandCanExecute(object parameter)
