@@ -29,6 +29,28 @@ namespace DrivePlus.Client.ViewModel
             }
         }
 
+        private bool _vehicleControl;
+        public bool VehicleControl
+        {
+            get => _vehicleControl;
+            set
+            {
+                _vehicleControl = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private bool _cameraControl;
+        public bool CameraControl
+        {
+            get => _cameraControl;
+            set
+            {
+                _cameraControl = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ConnectModel ConnectModel { get; set; }
 
         public RelayCommand ConnectCommand { get; set; }
@@ -41,6 +63,9 @@ namespace DrivePlus.Client.ViewModel
             ConnectModel = new ConnectModel();
             ConnectCommand = new RelayCommand(ConnectCommandExecute, ConnectCommandCanExecute);
             LoginCommand = new RelayCommand(LoginCommandExecute, LoginCommandCanExecute);
+
+            VehicleControl = true; // default
+            CameraControl = false;
         }
 
         private void ConnectCommandExecute(object parameter)
