@@ -1,6 +1,7 @@
 ﻿using DrivePlus.Client.Model;
 using DrivePlus.Client.ViewModel.Base;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DrivePlus.Client.ViewModel
@@ -57,6 +58,7 @@ namespace DrivePlus.Client.ViewModel
         public RelayCommand LoginCommand { get; set; }
 
         public Grid StreamGrid { get; set; }
+        public UIElement ConnectionMask { get; set; }
 
         public MainViewModel()
         {
@@ -96,6 +98,7 @@ namespace DrivePlus.Client.ViewModel
 
         private void GetCameraStream()
         {
+            ConnectionMask.IsHitTestVisible = false;
             StreamGrid.Children.Add(Camera.CameraAdapter.GetCameraUiElement());
         }
     }

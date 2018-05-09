@@ -42,7 +42,7 @@
                 <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1">
                     <Grid Name="StreamGrid" Width="960" Height="540">
                         <!-- Connect Panel-->
-                        <StackPanel Orientation="Vertical" Margin="350,150,350,150">
+                        <StackPanel Name="ConnectionPanel" Orientation="Vertical" Margin="350,150,350,150">
                             <Grid Margin="5,0,5,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
