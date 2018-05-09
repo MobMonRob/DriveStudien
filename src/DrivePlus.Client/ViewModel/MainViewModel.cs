@@ -52,6 +52,17 @@ namespace DrivePlus.Client.ViewModel
             }
         }
 
+        private bool _connected;
+        public bool Connected
+        {
+            get => _connected;
+            set
+            {
+                _connected = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ConnectModel ConnectModel { get; set; }
 
         public RelayCommand ConnectCommand { get; set; }
@@ -68,6 +79,8 @@ namespace DrivePlus.Client.ViewModel
 
             VehicleControl = true; // default
             CameraControl = false;
+
+            Connected = false;
         }
 
         private void ConnectCommandExecute(object parameter)
@@ -79,16 +92,27 @@ namespace DrivePlus.Client.ViewModel
                 ConnectModel.CameraUsernameTextValue, passwordBox?.Password);
 
             GetCameraStream();
+
+            Connected = true;
         }
 
         private bool ConnectCommandCanExecute(object parameter)
         {
+            var passwordBox = parameter as PasswordBox;
+
+            if (string.IsNullOrEmpty(ConnectModel.VehicleIpTextValue) || string.IsNullOrEmpty(ConnectModel.VehiclePortTextValue)
+                || string.IsNullOrEmpty(ConnectModel.CameraIpTextValue) || string.IsNullOrEmpty(ConnectModel.CameraPortTextValue)
+                || string.IsNullOrEmpty(ConnectModel.CameraUsernameTextValue) || string.IsNullOrEmpty(passwordBox?.Password))
+            {
+                return false;
+            }
+
             return true;
         }
 
         private void LoginCommandExecute(object parameter)
         {
-            Camera.CameraAdapter.Login(Camera.Parameter.UserCredentials);
+            Camera?.CameraAdapter.Login(Camera.Parameter.UserCredentials);
         }
 
         private bool LoginCommandCanExecute(object parameter)
