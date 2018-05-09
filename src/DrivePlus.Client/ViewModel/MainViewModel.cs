@@ -85,14 +85,14 @@ namespace DrivePlus.Client.ViewModel
         {
             var passwordBox = parameter as PasswordBox;
 
-            if (string.IsNullOrEmpty(ConnectModel.VehicleIpTextValue) || string.IsNullOrEmpty(ConnectModel.VehiclePortTextValue)
-                || string.IsNullOrEmpty(ConnectModel.CameraIpTextValue) || string.IsNullOrEmpty(ConnectModel.CameraPortTextValue)
-                || string.IsNullOrEmpty(ConnectModel.CameraUsernameTextValue) || string.IsNullOrEmpty(passwordBox?.Password))
+            if (NetworkValidation.ValidateIp(ConnectModel.VehicleIpTextValue) && NetworkValidation.ValidateIp(ConnectModel.CameraIpTextValue)
+                && NetworkValidation.ValidatePort(ConnectModel.VehiclePortTextValue) && NetworkValidation.ValidatePort(ConnectModel.CameraPortTextValue)
+                && string.IsNullOrEmpty(ConnectModel.CameraUsernameTextValue) == false && string.IsNullOrEmpty(passwordBox?.Password) == false)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         private void GetCameraStream()

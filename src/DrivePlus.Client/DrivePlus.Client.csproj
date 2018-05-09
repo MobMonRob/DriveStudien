@@ -81,6 +81,7 @@
     <Compile Include="Model\Camera.cs" />
     <Compile Include="Model\CameraParameter.cs" />
     <Compile Include="Model\ConnectModel.cs" />
+    <Compile Include="Model\NetworkValidation.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Model\VehicleParameter.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />

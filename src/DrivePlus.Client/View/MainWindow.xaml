@@ -50,9 +50,9 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="Fahrzeug:" FontSize="15" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}"/>
                                 <StackPanel Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <TextBox Name="VehicleIpTextBox" Width="100" Text="{Binding ConnectModel.VehicleIpTextValue}"/>
+                                    <TextBox Name="VehicleIpTextBox" Width="100" Text="{Binding ConnectModel.VehicleIpTextValue, UpdateSourceTrigger=PropertyChanged}"/>
                                     <TextBlock Text=":" FontSize="15" Margin="5,0,5,0" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}"/>
-                                    <TextBox Name="VehiclePortTextBox" Width="45" Text="{Binding ConnectModel.VehiclePortTextValue}"/>
+                                    <TextBox Name="VehiclePortTextBox" Width="45" Text="{Binding ConnectModel.VehiclePortTextValue, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="5,30,5,0">
@@ -67,11 +67,11 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Column="0" Grid.Row="0" Text="Kamera:" FontSize="15" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}"/>
                                 <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <TextBox Name="CameraIpTextBox" Width="100" Text="{Binding ConnectModel.CameraIpTextValue}"/>
+                                    <TextBox Name="CameraIpTextBox" Width="100" Text="{Binding ConnectModel.CameraIpTextValue, UpdateSourceTrigger=PropertyChanged}"/>
                                     <TextBlock Text=":" FontSize="15" Margin="5,0,5,0" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}"/>
-                                    <TextBox Name="CameraPortTextBox" Width="45" Text="{Binding ConnectModel.CameraPortTextValue}"/>
+                                    <TextBox Name="CameraPortTextBox" Width="45" Text="{Binding ConnectModel.CameraPortTextValue, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
-                                <TextBox Name="CameraUsernameTextBox" Grid.Column="1" Grid.Row="1" Margin="20,10,0,0" Text="{Binding ConnectModel.CameraUsernameTextValue}"/>
+                                <TextBox Name="CameraUsernameTextBox" Grid.Column="1" Grid.Row="1" Margin="20,10,0,0" Text="{Binding ConnectModel.CameraUsernameTextValue, UpdateSourceTrigger=PropertyChanged}"/>
                                 <PasswordBox Name="CameraPasswordBox" Grid.Column="1" Grid.Row="2" Margin="20,10,0,0"/>
                             </Grid>
                             <Grid Margin="5,30,5,0">
@@ -85,7 +85,7 @@
                     </Grid>
                 </Border>
                 <!-- Stream Control Panel -->
-                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1" IsEnabled="{Binding Connected}">
+                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1">
                     <Grid>
                         <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
                             <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Dunkler">
