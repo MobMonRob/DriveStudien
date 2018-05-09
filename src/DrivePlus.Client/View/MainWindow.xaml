@@ -85,7 +85,7 @@
                     </Grid>
                 </Border>
                 <!-- Stream Control Panel -->
-                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1">
+                <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="1,0,1,1" IsEnabled="{Binding Connected}">
                     <Grid>
                         <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
                             <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Dunkler">
@@ -127,14 +127,14 @@
                 </Border>
             </StackPanel>
             <!-- Vehicle Control Panel -->
-            <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="0,1,1,1">
+            <Border BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="0,1,1,1" IsEnabled="{Binding Connected}">
                 <StackPanel Orientation="Vertical" Margin="30,0,30,0" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical" Margin="5,20,5,0">
                         <TextBlock Text="Fahrzeug-Geschwindigkeit" FontSize="15" Margin="0,0,0,5" TextWrapping="Wrap" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Slider TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" Minimum="50" Maximum="100"/>
+                        <Slider TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Minimum="0" Maximum="5" ValueChanged="SpeedValueChanged" Value="{Binding Vehicle.Parameter.CurrentSpeed}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource LightButtonToolTipConverter}}" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged}">
+                        <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource LightButtonToolTipConverter}}" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding Vehicle.Parameter.IsLightOn, UpdateSourceTrigger=PropertyChanged}" Checked="LightButtonChecked" Unchecked="LightButtonUnchecked">
                             <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill">
