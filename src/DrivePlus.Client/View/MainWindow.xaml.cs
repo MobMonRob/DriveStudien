@@ -12,6 +12,7 @@ namespace DrivePlus.Client.View
         {
             InitializeComponent();
             viewModel.StreamGrid = StreamGrid;
+            viewModel.ConnectionMask = ConnectionPanel;
             DataContext = viewModel;
 
             var descriptor = DependencyPropertyDescriptor.FromProperty(System.Windows.Controls.Primitives.ButtonBase.IsPressedProperty, typeof(Button));
@@ -32,19 +33,19 @@ namespace DrivePlus.Client.View
             }
             else
             {
-                if (UpButton.IsPressed)
-                {                   
+                if (button?.Name == "UpButton" && button?.IsPressed == true)
+                {
                     viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Forward);
                 }
-                else if (LeftButton.IsPressed)
+                else if (button?.Name == "LeftButton" && button?.IsPressed == true)
                 {
                     viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Left);
                 }
-                else if (RightButton.IsPressed)
+                else if (button?.Name == "RightButton" && button?.IsPressed == true)
                 {
                     viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Right);
                 }
-                else if (DownButton.IsPressed)
+                else if (button?.Name == "DownButton" && button?.IsPressed == true)
                 {
                     viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Backward);
                 }
