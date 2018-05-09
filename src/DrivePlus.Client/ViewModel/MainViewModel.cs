@@ -55,7 +55,7 @@ namespace DrivePlus.Client.ViewModel
         public ConnectModel ConnectModel { get; set; }
 
         public RelayCommand ConnectCommand { get; set; }
-        public RelayCommand LoginCommand { get; set; }
+        public RelayCommand MagicCommand { get; set; }
 
         public Grid StreamGrid { get; set; }
         public UIElement ConnectionMask { get; set; }
@@ -64,7 +64,7 @@ namespace DrivePlus.Client.ViewModel
         {
             ConnectModel = new ConnectModel();
             ConnectCommand = new RelayCommand(ConnectCommandExecute, ConnectCommandCanExecute);
-            LoginCommand = new RelayCommand(LoginCommandExecute, LoginCommandCanExecute);
+            MagicCommand = new RelayCommand(MagicCommandExecute, MagicCommandCanExecute);
 
             VehicleControl = true; // default
             CameraControl = false;
@@ -95,21 +95,21 @@ namespace DrivePlus.Client.ViewModel
             return true;
         }
 
-        private void LoginCommandExecute(object parameter)
+        private void GetCameraStream()
+        {
+            ConnectionMask.IsHitTestVisible = false;
+            StreamGrid.Children.Add(Camera.CameraAdapter.GetCameraUiElement());
+        }
+
+        private void MagicCommandExecute(object parameter)
         {
             Camera?.CameraAdapter.Login(Camera.Parameter.UserCredentials);
             Vehicle?.VehicleAdapter.Fetch();
         }
 
-        private bool LoginCommandCanExecute(object parameter)
+        private bool MagicCommandCanExecute(object parameter)
         {
             return true;
-        }
-
-        private void GetCameraStream()
-        {
-            ConnectionMask.IsHitTestVisible = false;
-            StreamGrid.Children.Add(Camera.CameraAdapter.GetCameraUiElement());
         }
     }
 }

@@ -12,8 +12,8 @@ namespace DrivePlus.Client.Model
 
         public VehicleParameter(Uri vehicleUri)
         {
-            InitializeValuesByDefault();
             VehicleUri = vehicleUri;
+            InitializeValuesByDefault();
         }
 
         private void InitializeValuesByDefault()
