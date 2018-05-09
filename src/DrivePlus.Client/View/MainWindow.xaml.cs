@@ -51,5 +51,24 @@ namespace DrivePlus.Client.View
                 }
             }
         }
+
+        private void LightButtonChecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.SwitchLightOn);
+        }
+
+        private void LightButtonUnchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.SwitchLightOff);
+        }
+
+        private void SpeedValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            var slider = sender as Slider;
+            viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.SetSpeed, Convert.ToInt32(slider?.Value));
+        }
     }
 }
