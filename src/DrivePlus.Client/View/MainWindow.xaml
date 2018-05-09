@@ -149,8 +149,8 @@
                     </StackPanel>
                     <Grid Margin="0,145,0,0">
                         <StackPanel Orientation="Vertical">
-                            <RadioButton Content="Fahrzeugsteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" IsChecked="{Binding VehicleControl}"/>
-                            <RadioButton Content="Kamerasteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" Margin="0,10,0,0" IsChecked="{Binding CameraControl}"/>
+                            <RadioButton Content="Fahrzeugsteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" IsChecked="{Binding VehicleControl, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton Content="Kamerasteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" Margin="0,10,0,0" IsChecked="{Binding CameraControl, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </Grid>
                     <Grid Width="210" Height="210" Margin="0,30,0,0">
@@ -164,7 +164,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Grid.Column="1" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Grid.Row="0" Grid.Column="1" Name="UpButton" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Rectangle Margin="0,0,0,5" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill">
@@ -175,7 +175,7 @@
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Grid.Row="1" Grid.Column="0" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Grid.Row="1" Grid.Column="0" Name="LeftButton" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Rectangle Margin="0,0,5,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill">
@@ -186,7 +186,7 @@
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Grid.Row="1" Grid.Column="2" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Grid.Row="1" Grid.Column="2" Name="RightButton" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Rectangle Margin="5,0,0,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill">
@@ -197,7 +197,7 @@
                                 </Rectangle.OpacityMask>
                             </Rectangle>
                         </Button>
-                        <Button Grid.Row="2" Grid.Column="1" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Grid.Row="2" Grid.Column="1" Name="DownButton" Width="70" Height="70" Style="{DynamicResource MetroCircleButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Rectangle Margin="0,5,0,0" Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                 <Rectangle.OpacityMask>
                                     <VisualBrush Stretch="Fill">
