@@ -52,17 +52,6 @@ namespace DrivePlus.Client.ViewModel
             }
         }
 
-        private bool _connected;
-        public bool Connected
-        {
-            get => _connected;
-            set
-            {
-                _connected = value;
-                RaisePropertyChanged();
-            }
-        }
-
         public ConnectModel ConnectModel { get; set; }
 
         public RelayCommand ConnectCommand { get; set; }
@@ -79,8 +68,6 @@ namespace DrivePlus.Client.ViewModel
 
             VehicleControl = true; // default
             CameraControl = false;
-
-            Connected = false;
         }
 
         private void ConnectCommandExecute(object parameter)
@@ -92,8 +79,6 @@ namespace DrivePlus.Client.ViewModel
                 ConnectModel.CameraUsernameTextValue, passwordBox?.Password);
 
             GetCameraStream();
-
-            Connected = true;
         }
 
         private bool ConnectCommandCanExecute(object parameter)
