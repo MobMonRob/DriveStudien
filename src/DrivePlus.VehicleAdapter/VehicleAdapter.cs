@@ -8,9 +8,12 @@ namespace DrivePlus.VehicleAdapter
     {
         private readonly Uri _vehicleUri;
 
+        private readonly System.Windows.Forms.WebBrowser _browser;
+
         public VehicleAdapter(Uri vehicleUri)
         {
             _vehicleUri = vehicleUri;
+            _browser = new System.Windows.Forms.WebBrowser();
         }
 
         public void SendCommand(VehicleCommand command, int value = 0)
@@ -47,7 +50,7 @@ namespace DrivePlus.VehicleAdapter
                     return;
             }
 
-            request.Timeout = 30;
+            request.Timeout = 300;
 
             try
             {
@@ -61,7 +64,12 @@ namespace DrivePlus.VehicleAdapter
 
         public string GetDistance()
         {
-            throw new NotImplementedException();
+            return Convert.ToInt32(_browser.DocumentText).ToString();
+        }
+
+        public void Fetch()
+        {
+            _browser.Navigate(_vehicleUri + "get_distance");
         }
     }
 }
