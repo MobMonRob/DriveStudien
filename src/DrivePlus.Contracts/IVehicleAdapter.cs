@@ -6,6 +6,6 @@
 
         string GetDistance();
 
-        void Fetch();
+        void FetchDistance();
     }
 }

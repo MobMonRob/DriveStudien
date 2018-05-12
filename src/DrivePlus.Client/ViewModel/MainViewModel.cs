@@ -55,7 +55,9 @@ namespace DrivePlus.Client.ViewModel
         public ConnectModel ConnectModel { get; set; }
 
         public RelayCommand ConnectCommand { get; set; }
-        public RelayCommand MagicCommand { get; set; }
+        public RelayCommand LoginCommand { get; set; }
+        public RelayCommand FetchDistanceCommand { get; set; }
+        public RelayCommand ShowDistanceCommand { get; set; }
 
         public Grid StreamGrid { get; set; }
         public UIElement ConnectionMask { get; set; }
@@ -64,7 +66,9 @@ namespace DrivePlus.Client.ViewModel
         {
             ConnectModel = new ConnectModel();
             ConnectCommand = new RelayCommand(ConnectCommandExecute, ConnectCommandCanExecute);
-            MagicCommand = new RelayCommand(MagicCommandExecute, MagicCommandCanExecute);
+            LoginCommand = new RelayCommand(LoginCommandExecute, LoginCommandCanExecute);
+            FetchDistanceCommand = new RelayCommand(FetchDistanceCommandExecute, FetchDistanceCommandCanExecute);
+            ShowDistanceCommand = new RelayCommand(ShowDistanceCommandExecute, ShowDistanceCommandCanExecute);
 
             VehicleControl = true; // default
             CameraControl = false;
@@ -101,14 +105,48 @@ namespace DrivePlus.Client.ViewModel
             StreamGrid.Children.Add(Camera.CameraAdapter.GetCameraUiElement());
         }
 
-        private void MagicCommandExecute(object parameter)
+        private void LoginCommandExecute(object parameter)
         {
             Camera?.CameraAdapter.Login(Camera.Parameter.UserCredentials);
-            Vehicle?.VehicleAdapter.Fetch();
         }
 
-        private bool MagicCommandCanExecute(object parameter)
+        private bool LoginCommandCanExecute(object parameter)
         {
+            if (Camera == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void FetchDistanceCommandExecute(object parameter)
+        {
+            Vehicle?.VehicleAdapter.FetchDistance();
+        }
+
+        private bool FetchDistanceCommandCanExecute(object parameter)
+        {
+            if (Vehicle == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ShowDistanceCommandExecute(object parameter)
+        {
+            MessageBox.Show("Abstand: " + Vehicle?.VehicleAdapter.GetDistance() + " cm", "Abstand in Fahrtrichtung");
+        }
+
+        private bool ShowDistanceCommandCanExecute(object parameter)
+        {
+            if (Vehicle == null)
+            {
+                return false;
+            }
+
             return true;
         }
     }

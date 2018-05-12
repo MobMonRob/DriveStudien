@@ -67,7 +67,7 @@ namespace DrivePlus.VehicleAdapter
             return Convert.ToInt32(_browser.DocumentText).ToString();
         }
 
-        public void Fetch()
+        public void FetchDistance()
         {
             _browser.Navigate(_vehicleUri + "get_distance");
         }

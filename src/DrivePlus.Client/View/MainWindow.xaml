@@ -120,8 +120,7 @@
                                         </VisualBrush>
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
-                            </Button>
-                            <Button Content="M" Width="50" Height="50" Margin="730,0,0,0" Command="{Binding MagicCommand}"/>
+                            </Button>                            
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -212,6 +211,10 @@
                 </StackPanel>
             </Border>
         </StackPanel>
+        <!-- Temporary Solution -->
+        <Button Content="Login" Margin="0,0,210,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Command="{Binding LoginCommand}"/>
+        <Button Content="Fetch Distance" Margin="0,0,110,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Command="{Binding FetchDistanceCommand}"/>
+        <Button Content="Show Distance" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Command="{Binding ShowDistanceCommand}"/>
     </Grid>
 </controls:MetroWindow>
     
