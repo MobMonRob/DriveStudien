@@ -133,6 +133,16 @@ namespace DrivePlus.Client.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap night_vision_icon {
+            get {
+                object obj = ResourceManager.GetObject("night_vision_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_icon {
             get {
                 object obj = ResourceManager.GetObject("right_icon", resourceCulture);
