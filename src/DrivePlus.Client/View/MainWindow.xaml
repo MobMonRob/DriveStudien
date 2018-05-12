@@ -116,7 +116,7 @@
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
                                             <VisualBrush.Visual>
-                                                <Image Source="./Resources/light_icon.png"/>
+                                                <Image Source="./Resources/night_vision_icon.png"/>
                                             </VisualBrush.Visual>
                                         </VisualBrush>
                                     </Rectangle.OpacityMask>
