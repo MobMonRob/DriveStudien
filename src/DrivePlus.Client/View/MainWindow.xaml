@@ -15,6 +15,7 @@
     <controls:MetroWindow.Resources>
         <converter:LightButtonTextConverter x:Key="LightButtonTextConverter"/>
         <converter:LightButtonToolTipConverter x:Key="LightButtonToolTipConverter"/>
+        <converter:NightVisionButtonToolTipConverter x:Key="NightVisionButtonToolTipConverter"/>
     </controls:MetroWindow.Resources>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands Margin="0,0,5,0" Visibility="Collapsed">
@@ -110,7 +111,7 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" IsChecked="{Binding Vehicle.Parameter.IsInfraLedOn, UpdateSourceTrigger=PropertyChanged}" Checked="NightVisionButtonChecked" Unchecked="NightVisionButtonUnchecked">
+                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" ToolTip="{Binding Vehicle.Parameter.IsInfraLedOn, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NightVisionButtonToolTipConverter}}" IsChecked="{Binding Vehicle.Parameter.IsInfraLedOn, UpdateSourceTrigger=PropertyChanged}" Checked="NightVisionButtonChecked" Unchecked="NightVisionButtonUnchecked">
                                 <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
