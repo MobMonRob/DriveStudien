@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace DrivePlus.Contracts
 {
@@ -7,5 +8,9 @@ namespace DrivePlus.Contracts
         void Login(UserCredentials userCredentials);
 
         UIElement GetCameraUiElement();
+
+        void SendCommand(UserCredentials userCredentials, CameraCommand command, int value = 0);
+
+        Uri GetSnapshotUri(UserCredentials userCredentials);
     }
 }

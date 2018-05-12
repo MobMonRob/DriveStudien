@@ -1,4 +1,5 @@
 ﻿using DrivePlus.Client.Model;
+using DrivePlus.Client.View;
 using DrivePlus.Client.ViewModel.Base;
 using System;
 using System.Windows;
@@ -58,6 +59,7 @@ namespace DrivePlus.Client.ViewModel
         public RelayCommand LoginCommand { get; set; }
         public RelayCommand FetchDistanceCommand { get; set; }
         public RelayCommand ShowDistanceCommand { get; set; }
+        public RelayCommand SnapshotCommand { get; set; }
 
         public Grid StreamGrid { get; set; }
         public UIElement ConnectionMask { get; set; }
@@ -69,6 +71,7 @@ namespace DrivePlus.Client.ViewModel
             LoginCommand = new RelayCommand(LoginCommandExecute, LoginCommandCanExecute);
             FetchDistanceCommand = new RelayCommand(FetchDistanceCommandExecute, FetchDistanceCommandCanExecute);
             ShowDistanceCommand = new RelayCommand(ShowDistanceCommandExecute, ShowDistanceCommandCanExecute);
+            SnapshotCommand = new RelayCommand(SnapshotCommandExecute, SnapshotCommandCanExecute);
 
             VehicleControl = true; // default
             CameraControl = false;
@@ -143,6 +146,21 @@ namespace DrivePlus.Client.ViewModel
         private bool ShowDistanceCommandCanExecute(object parameter)
         {
             if (Vehicle == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SnapshotCommandExecute(object parameter)
+        {
+            new SnapshotView(Camera?.CameraAdapter.GetSnapshotUri(Camera?.Parameter.UserCredentials)).ShowDialog(); ;
+        }
+
+        private bool SnapshotCommandCanExecute(object parameter)
+        {
+            if (Camera == null)
             {
                 return false;
             }

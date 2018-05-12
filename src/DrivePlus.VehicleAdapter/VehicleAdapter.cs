@@ -64,7 +64,14 @@ namespace DrivePlus.VehicleAdapter
 
         public string GetDistance()
         {
-            return Convert.ToInt32(_browser.DocumentText).ToString();
+            try
+            {
+                return Convert.ToInt32(_browser.DocumentText).ToString();
+            }
+            catch (FormatException)
+            {
+                return "---";
+            }
         }
 
         public void FetchDistance()

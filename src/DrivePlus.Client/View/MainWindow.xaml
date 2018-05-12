@@ -110,7 +110,18 @@
                                     </Rectangle.OpacityMask>
                                 </Rectangle>
                             </Button>
-                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Screenshot speichern">
+                            <ToggleButton Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" IsChecked="{Binding Vehicle.Parameter.IsInfraLedOn, UpdateSourceTrigger=PropertyChanged}" Checked="NightVisionButtonChecked" Unchecked="NightVisionButtonUnchecked">
+                                <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill">
+                                            <VisualBrush.Visual>
+                                                <Image Source="./Resources/light_icon.png"/>
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </ToggleButton>
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Snapshot" Command="{Binding SnapshotCommand}">
                                 <Rectangle Width="30" Height="30" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                                     <Rectangle.OpacityMask>
                                         <VisualBrush Stretch="Fill">
@@ -148,8 +159,8 @@
                     </StackPanel>
                     <Grid Margin="0,145,0,0">
                         <StackPanel Orientation="Vertical">
-                            <RadioButton Content="Fahrzeugsteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" IsChecked="{Binding VehicleControl, UpdateSourceTrigger=PropertyChanged}"/>
-                            <RadioButton Content="Kamerasteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" Margin="0,10,0,0" IsChecked="{Binding CameraControl, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton Name="VehicleControlRadioButton" Content="Fahrzeugsteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" IsChecked="{Binding VehicleControl, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton Name="CameraControlRadioButton" Content="Kamerasteuerung" FontSize="15" Foreground="{DynamicResource AccentColorBrush}" Margin="0,10,0,0" IsChecked="{Binding CameraControl, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </Grid>
                     <Grid Width="210" Height="210" Margin="0,30,0,0">

@@ -27,27 +27,56 @@ namespace DrivePlus.Client.View
             var viewModel = DataContext as MainViewModel;
             var button = sender as Button;
 
-            if (button?.IsPressed == false)
+            if (VehicleControlRadioButton.IsChecked == true)
             {
-                viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Stop);
+                if (button?.IsPressed == false)
+                {
+                    viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Stop);
+                }
+                else
+                {
+                    if (button?.Name == "UpButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Forward);
+                    }
+                    else if (button?.Name == "LeftButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Left);
+                    }
+                    else if (button?.Name == "RightButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Right);
+                    }
+                    else if (button?.Name == "DownButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Backward);
+                    }
+                }
             }
-            else
+            else if (CameraControlRadioButton.IsChecked == true)
             {
-                if (button?.Name == "UpButton" && button?.IsPressed == true)
+                if (button?.IsPressed == false)
                 {
-                    viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Forward);
+                    viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.Stop);
                 }
-                else if (button?.Name == "LeftButton" && button?.IsPressed == true)
+                else
                 {
-                    viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Left);
-                }
-                else if (button?.Name == "RightButton" && button?.IsPressed == true)
-                {
-                    viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Right);
-                }
-                else if (button?.Name == "DownButton" && button?.IsPressed == true)
-                {
-                    viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.Backward);
+                    if (button?.Name == "UpButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.Up);
+                    }
+                    else if (button?.Name == "LeftButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.Left);
+                    }
+                    else if (button?.Name == "RightButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.Right);
+                    }
+                    else if (button?.Name == "DownButton" && button?.IsPressed == true)
+                    {
+                        viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.Down);
+                    }
                 }
             }
         }
@@ -69,6 +98,18 @@ namespace DrivePlus.Client.View
             var viewModel = DataContext as MainViewModel;
             var slider = sender as Slider;
             viewModel?.Vehicle?.VehicleAdapter.SendCommand(VehicleCommand.SetSpeed, Convert.ToInt32(slider?.Value));
+        }
+
+        private void NightVisionButtonChecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOn);
+        }
+
+        private void NightVisionButtonUnchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOff);
         }
     }
 }

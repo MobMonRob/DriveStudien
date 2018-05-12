@@ -8,6 +8,8 @@ namespace DrivePlus.Client.Model
 
         public bool IsLightOn { get; set; }
 
+        public bool IsInfraLedOn { get; set; }
+
         public double CurrentSpeed{ get; set; }
 
         public VehicleParameter(Uri vehicleUri)
@@ -19,6 +21,7 @@ namespace DrivePlus.Client.Model
         private void InitializeValuesByDefault()
         {
             IsLightOn = false;
+            IsInfraLedOn = false;
             CurrentSpeed = 5.0d;
         }
     }
