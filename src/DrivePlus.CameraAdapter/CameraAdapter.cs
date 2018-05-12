@@ -91,11 +91,8 @@ namespace DrivePlus.CameraAdapter
                     return;
             }
 
-            if (request != null)
-            {
-                request.GetResponse();
-                request.Abort();
-            }
+            request.GetResponse();
+            request.Abort();
         }
 
         public Uri GetSnapshotUri(UserCredentials userCredentials)

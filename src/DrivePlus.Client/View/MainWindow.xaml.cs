@@ -103,13 +103,13 @@ namespace DrivePlus.Client.View
         private void NightVisionButtonChecked(object sender, System.Windows.RoutedEventArgs e)
         {
             var viewModel = DataContext as MainViewModel;
-            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOn);
+            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel.Camera.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOn);
         }
 
         private void NightVisionButtonUnchecked(object sender, System.Windows.RoutedEventArgs e)
         {
             var viewModel = DataContext as MainViewModel;
-            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel?.Camera?.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOff);
+            viewModel?.Camera?.CameraAdapter.SendCommand(viewModel.Camera.Parameter.UserCredentials, CameraCommand.SwitchInfraLedOff);
         }
     }
 }

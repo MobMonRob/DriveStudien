@@ -155,7 +155,7 @@ namespace DrivePlus.Client.ViewModel
 
         private void SnapshotCommandExecute(object parameter)
         {
-            new SnapshotView(Camera?.CameraAdapter.GetSnapshotUri(Camera?.Parameter.UserCredentials)).ShowDialog(); ;
+            new SnapshotView(Camera?.CameraAdapter.GetSnapshotUri(Camera?.Parameter.UserCredentials)).ShowDialog();
         }
 
         private bool SnapshotCommandCanExecute(object parameter)
