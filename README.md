@@ -1,2 +1,2 @@
 # DriveStudien
-Studienarbeit drahtlose videobasierte Fahrzeugfernsteuerung
+Studienarbeit drahtlose videobasierte Fahrzeugfernsteuerung.
